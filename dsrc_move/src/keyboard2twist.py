@@ -49,8 +49,9 @@ def motion():
 	speed_list = f.readlines()
 	for i in speed_list:
 	    # 根据速度文件改变速度
-	    speed = float(i)
-	    turn = 0
+	    para = i.split(',')
+	    speed = float(para[0])
+	    turn = float(para[1])
 	    # 运动速度和角速度
 	    global_vel.linear.x = speed * walk_vel_
 	    global_vel.angular.z = turn * yaw_rate_
