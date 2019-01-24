@@ -1,0 +1,8 @@
+<launch>
+
+    <node name="keyboardloop" pkg="dsrc_move" type="keyboardloop.py" output="screen">
+
+	<remap from="/sub1/cmd_vel" to= "/cmd_vel" />
+    </node>
+
+</launch>

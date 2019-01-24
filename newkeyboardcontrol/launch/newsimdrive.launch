@@ -1,0 +1,38 @@
+<launch>
+
+    <node name="newkeyboardtwist" pkg="dsrc_move" type="newkeyboardtwist.py" output="screen">
+
+	<remap from="/sub1/cmd_vel" to= "/cmd_vel" />
+    </node>
+
+    <node name="autolabor_driver" pkg="autolabor_pro1_driver" type="autolabor_pro1_driver" output="screen">
+        <param name="port_name" value="/dev/ttyUSB0" />
+        <param name="odom_frame" value="odom" />
+        <param name="base_frame" value="base_link" />
+
+        <param name="baud_rate" value="115200" />
+	<!-- 发送/CMD_VEL的频率-->
+        <param name="control_rate" value="10" />
+	<!-- 发送电池电量的频率-->
+        <param name="sensor_rate" value="5" />
+
+	<!-- 减速比，可能有齿轮减速器之类的，这里没有-->
+        <param name="reduction_ratio" value="1.0" />
+
+	<!-- 电机转一圈编码器值多少-->
+        <param name="encoder_resolution" value="1600.0" />
+
+        <param name="wheel_diameter" value="0.25" />
+
+	<!-- 左右轮的间距，用来通过编码器差值计算角速度-->
+        <param name="model_param" value="0.83" />
+
+        <!-- 倍率,驱动板需要接收一个控制量来控制电机的速度，比如说1000，但是这个数太大了，所以除以这一个数，可以发送一个20就可以了-->
+        <param name="pid_rate" value="50.0" />
+
+	<!-- 驱动板能够接收到数据的最大值-->
+	<param name="maximum_encoding" value="32.0" />
+
+
+    </node>
+</launch>

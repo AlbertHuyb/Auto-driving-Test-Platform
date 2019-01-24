@@ -1,0 +1,14 @@
+<launch>
+    <node name="driver" pkg="autolabor_driver" type="autolabor_driver" output="screen">
+	<param name="port_name" value="/dev/ttyUSB0" />
+	<param name="baud_rate" value="115200" />
+	<param name="control_rate" value="10" />
+	<param name="pid_rate" value="50" />
+    </node>
+
+    <node name="udpreceive" pkg="dsrc_move" type="udpreceive.py" output="screen">
+	<param name="receive_port" value="4040" />
+	<remap from="/sub2/cmd_vel" to= "/cmd_vel" />
+
+    </node>
+</launch>

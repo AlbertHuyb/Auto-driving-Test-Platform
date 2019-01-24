@@ -1,0 +1,11 @@
+<launch>
+    <node name="udpsendtwist" pkg="dsrc_move" type="udpsendtwist.py" output="screen">
+	<param name="rsu_ip" value="192.168.1.106" />
+	<param name="rsu_port" value="4040" />
+    </node>
+
+    <node name="keyboard2twist" pkg="dsrc_move" type="keyboard2twist.py" output="screen">
+
+
+    </node>
+</launch>

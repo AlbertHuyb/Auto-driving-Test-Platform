@@ -1,0 +1,13 @@
+<launch>
+    <node name="udpsendtwist" pkg="dsrc_move" type="udpsendtwist.py" output="screen">
+	<param name="rsu_ip" value="192.168.1.100" />
+	<param name="rsu_port" value="4040" />
+	<remap from="/sub1/cmd_vel" to= "/cmd_vel" />
+
+    </node>
+
+    <node name="talker2" pkg="node_test" type="talker2.js" output="screen">
+
+
+    </node>
+</launch>
