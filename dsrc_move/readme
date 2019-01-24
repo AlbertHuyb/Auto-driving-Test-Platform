@@ -1,0 +1,12 @@
+I.使用方法
+    1.catkin_make
+    2.终端输入roscore
+    3.进入/dsrc_move/launch, 终端输入roslaunch simdrive.launch
+
+II.注意事项
+    1.使用前需对src/keyboard2twist.py作部分修改
+	(1)更新频率rate。频率越高，运动精细程度越高。
+	(2)读取文件路径f。现在使用的是绝对路径，相对路径似乎不可用。
+	(3)para = i.split(',')及下两句未在车辆上进行调试，记得进行调试。
+	(4)根据所需对判断条件ch == '*'及执行语句f = open(*, 'r')进行修改
+    2.目前的速度文件*.txt仅为测试用，需进行修改
